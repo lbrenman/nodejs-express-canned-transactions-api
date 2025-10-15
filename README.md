@@ -39,16 +39,9 @@ The server listens on [http://localhost:3000](http://localhost:3000) by default,
 
 ### **POST `/transactions`**
 
+with ANY body
+
 Returns **one random transaction object** from the in-memory array.
-
-**Request body:**
-Optional — if filtering by `accountId` is enabled, include:
-
-```json
-{
-  "accountId": "acc_123"
-}
-```
 
 **Example response:**
 
@@ -61,12 +54,6 @@ Optional — if filtering by `accountId` is enabled, include:
   "currency": "USD",
   "description": "Coffee shop"
 }
-```
-
-If no transactions exist, the endpoint returns:
-
-```json
-{ "message": "No transactions available" }
 ```
 
 ---
@@ -97,14 +84,6 @@ Return a random canned transaction:
 curl -s -X POST http://localhost:3000/transactions \
   -H "Content-Type: application/json" \
   -d '{}' | jq
-```
-
-(Optional) Filter by `accountId` (if enabled in code):
-
-```bash
-curl -s -X POST http://localhost:3000/transactions \
-  -H "Content-Type: application/json" \
-  -d '{"accountId":"acc_123"}' | jq
 ```
 
 ---
@@ -146,49 +125,9 @@ Each call to `/transactions` picks **one random element** from this list and ret
 
 ---
 
-## 🧠 Optional Filtering
-
-If you uncomment the following code in `server.js`, you can filter by `accountId` before random selection:
-
-```js
-const { accountId } = req.body || {};
-const pool = accountId
-  ? TRANSACTIONS.filter(t => t.accountId === accountId)
-  : TRANSACTIONS;
-```
-
-Then the API will only select a random transaction matching that `accountId`.
-
----
 
 ## 🌍 Environment
 
 * Node.js 18+ recommended
 * Uses `PORT` environment variable if defined
 * Default port: `3000`
-
----
-
-## 📁 Example Project Structure
-
-```
-canned-transactions-api/
-├── .gitignore
-├── package.json
-├── README.md
-└── server.js
-```
-
----
-
-## 📜 License
-
-MIT License © 2025
-
-```
-
----
-
-✅ You can paste this whole thing directly into your project’s `README.md`.  
-Would you like me to also include a short “example server.js” snippet at the bottom for quick reference?
-```
