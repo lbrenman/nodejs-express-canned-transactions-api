@@ -1,0 +1,23 @@
+{
+  "name": "canned-transactions-api",
+  "version": "1.0.0",
+  "description": "Express API that returns a canned transactions array on POST /transactions",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "express",
+    "api",
+    "transactions",
+    "mock",
+    "demo"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
