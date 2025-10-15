@@ -1,8 +1,3 @@
-Absolutely — here’s the complete **README.md** you can copy and drop directly into your project (it includes everything from setup to examples, with your new “single JSON object” behavior clearly documented):
-
----
-
-````markdown
 # 🧾 Canned Transactions API (Node.js/Express)
 
 A tiny, no-database **Express API** that exposes **POST `/transactions`** and returns **one randomly selected JSON object** from a hard-coded transactions array.
